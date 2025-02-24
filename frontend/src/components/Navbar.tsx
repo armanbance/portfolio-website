@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-scroll";
 import { Home, Briefcase, FolderGit2, User } from "lucide-react";
 
