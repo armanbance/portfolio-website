@@ -7,13 +7,13 @@ const experienceItems = [
     image: "./Bhizchat.png",
     title: "Bhizchat",
     description:
-      "Software engineer intern at Bhizchat. I worked on backend development using Typescript and Node.js. I engineered a real-time messaging layer for an AI-powered chatbot for Shopify stores using WebSocket APIs and Typescript, reducing end-to-end latency by over 40% and boosting user engagement. I also helped to create a recommendation engine leveraging Pinecone vector database and OpenAI's GPT-4o, enhancing personalized product discovery and increasing store sales by about 15%",
+      "I worked as a Software Engineer intern at Bhizchat, specifically on the backend team where I coded with Typescript and Node.js. I engineered a real-time messaging layer for an AI-powered chatbot for Shopify stores using WebSocket APIs, reducing end-to-end latency by over 40% and boosting user engagement. I also helped to create a recommendation engine leveraging Pinecone vector database and OpenAI's GPT-4o, enhancing personalized product discovery and increasing store sales by about 15%",
   },
   {
     image: "./SCE.png",
     title: "SJSU Software and Computer Engineering Society (SCE)",
     description:
-      "Full stack developer at SCE. Designed and optimized RESTful APIs using Node.js and Express for the organization’s website, implementing JSON Web Tokens (JWT) and OAuth 2.0 to enforce robust security protocols and data protection for 500+ users. I also streamlined various deployment processes, including automating CI/CD pipelines with GitHub Actions and adding frontend testing, increasing bug resolution and deployment speed by about 15%.",
+      "Worked as a Software Engineer intern at SCE over the summer in 2024. I designed and optimized RESTful APIs using Node.js and Express for the organization’s website, implementing JSON Web Tokens (JWT) and OAuth 2.0 to enforce robust security protocols and data protection for 500+ users. I also streamlined various deployment processes, including automating CI/CD pipelines with GitHub Actions and adding frontend testing, increasing bug resolution and deployment speed by about 15%.",
   },
 ];
 
