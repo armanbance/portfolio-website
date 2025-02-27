@@ -29,6 +29,24 @@ const Navbar = () => {
                   <span>{item.name}</span>
                 </Link>
               ))}
+              <a
+                href="https://www.linkedin.com/in/arman-bance/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={"./LinkedIn.png"}
+                  alt="LinkedIn"
+                  className="w-8 h-8"
+                />
+              </a>
+              <a
+                href="https://github.com/armanbance"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={"./Github.png"} alt="Github" className="w-8 h-8" />
+              </a>
             </div>
           </div>
         </div>

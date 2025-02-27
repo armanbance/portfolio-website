@@ -13,7 +13,7 @@ const experienceItems = [
     image: "./SCE.png",
     title: "SJSU Software and Computer Engineering Society (SCE)",
     description:
-      "Worked as a Software Engineer intern at SCE over the summer in 2024. I designed and optimized RESTful APIs using Node.js and Express for the organization’s website, implementing JSON Web Tokens (JWT) and OAuth 2.0 to enforce robust security protocols and data protection for 500+ users. I also streamlined various deployment processes, including automating CI/CD pipelines with GitHub Actions and adding frontend testing, increasing bug resolution and deployment speed by about 15%.",
+      "Worked as a Software Engineer intern at SCE over the summer in 2024. I designed and optimized RESTful APIs using Node.js and Express for the organization's website, implementing JSON Web Tokens (JWT) and OAuth 2.0 to enforce robust security protocols and data protection for 500+ users. I also streamlined various deployment processes, including automating CI/CD pipelines with GitHub Actions and adding frontend testing, increasing bug resolution and deployment speed by about 15%.",
   },
 ];
 
@@ -22,13 +22,13 @@ const projectItems = [
     image: "./chillguy.png",
     title: "ChillGuy.ai",
     description:
-      "Built an AI-powered voice agent that provides mental health and wellness check-ins via phone calls, winning 2nd place overall at Santa Clara University’s Hack for Humanity 2025 out of over 330 participants. We integrated Twilio for outbound voice calls, and Google Oauth/Calendar to allow users to schedule calls. We also leveraged Eleven Labs natural-sounding voice agents powered by GPT-4o to guide users through calming breathing exercises and affirmations, lowering stress and providing emotional support",
+      "Built an AI-powered voice agent that provides mental health and wellness check-ins via phone calls, winning 2nd place overall at Santa Clara University's Hack for Humanity 2025 out of over 330 participants. We integrated Twilio for outbound voice calls, and Google Oauth/Calendar to allow users to schedule calls. We also leveraged Eleven Labs natural-sounding voice agents powered by GPT-4o to guide users through calming breathing exercises and affirmations, lowering stress and providing emotional support",
   },
   {
     image: "./SpartanFitness.png",
     title: "Spartan Fitness",
     description:
-      "Spartan Fitness is a scalable fitness app for San Jose State University (SJSU) students that tracks real-time gym occupancy and help users create workout plans based on machine availability. Built an Express.js server to handle user authentication and storing the user’s workout plans in MongoDB. Incorporated information from various external API’s and SJSU to offer accurate and precise data ",
+      "Spartan Fitness is a scalable fitness app for San Jose State University (SJSU) students that tracks real-time gym occupancy and help users create workout plans based on machine availability. Built an Express.js server to handle user authentication and storing the user's workout plans in MongoDB. Incorporated information from various external API's and SJSU to offer accurate and precise data ",
   },
   {
     image: "./EasyBuckets.png",
@@ -72,7 +72,7 @@ function App() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="min-h-screen py-20 bg-white">
+      <section id="experience" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl text-black font-bold text-center mb-12">
             Experience
@@ -82,7 +82,7 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="min-h-screen py-20 bg-gray-50">
+      <section id="projects" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Projects</h2>
           <Carousel items={projectItems} />
@@ -90,7 +90,7 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="min-h-screen py-20 bg-white">
+      <section id="about" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">About Me</h2>
           <div className="bg-white rounded-xl shadow-lg p-8">
@@ -103,7 +103,7 @@ function App() {
               intelligence, while my hands-on experience has allowed me to
               explore cutting-edge technologies. Recently, I demonstrated my
               ability to innovate and collaborate by winning second place at
-              Santa Clara University’s Hack for Humanity hackathon, where I
+              Santa Clara University's Hack for Humanity hackathon, where I
               developed a voice-based intelligent agent using APIs like Twilio
               and ElevenLabs. My goal is to continue creating meaningful
               applications that make a positive difference, combining technical
