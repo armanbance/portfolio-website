@@ -48,25 +48,36 @@ function App() {
         id="home"
         className="min-h-screen flex items-center justify-center pt-16"
       >
-        <div className="max-w-4xl mx-auto px-4 py-20 text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Hi, I'm Arman Bance
-          </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            I'm a Junior at San Jose State University pursuing Computer Science.
-            I'm passionate about creating innovative solutions and learning new
-            technologies.
-          </p>
-          <div className="flex justify-center space-x-4">
-            <Link
-              to="experience"
-              spy={true}
-              smooth={true}
-              duration={500}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
-            >
-              View My Work
-            </Link>
+        <div className="max-w-6xl mx-auto px-4 py-20 flex flex-col md:flex-row items-center gap-8">
+          <div className="w-full md:w-1/3 flex justify-center">
+            <img
+              src="./ArmanProfilePic.png"
+              alt="Arman Bance"
+              className="rounded-full w-64 h-64 object-cover shadow-lg border-4 border-blue-600"
+            />
+          </div>
+
+          {/* Text Content */}
+          <div className="w-full md:w-2/3 text-left">
+            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+              Hi, I'm Arman Bance
+            </h1>
+            <p className="text-xl text-gray-600 mb-8">
+              I'm a Junior at San Jose State University pursuing Computer
+              Science. I'm passionate about creating innovative solutions and
+              learning new technologies.
+            </p>
+            <div className="flex space-x-4">
+              <Link
+                to="experience"
+                spy={true}
+                smooth={true}
+                duration={500}
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+              >
+                View My Work
+              </Link>
+            </div>
           </div>
         </div>
       </section>
