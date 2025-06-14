@@ -1,6 +1,7 @@
 import { Link } from "react-scroll";
 import Navbar from "./components/Navbar";
 import ExperienceCard from "./components/ExperienceCard";
+import "./animations.css";
 
 const experienceItems = [
   {
@@ -59,21 +60,21 @@ function App() {
             <img
               src="./ArmanProfilePic.png"
               alt="Arman Bance"
-              className="rounded-full w-64 h-64 object-cover shadow-lg border-4 border-blue-600"
+              className="rounded-full w-64 h-64 object-cover shadow-lg border-4 border-blue-600 animate-fade-scale animate-delay-200"
             />
           </div>
 
           {/* Text Content */}
           <div className="w-full md:w-2/3 text-left">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-slide-left">
               Hi, I'm Arman Bance
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-gray-600 mb-8 animate-slide-left animate-delay-200">
               I'm a Junior at San Jose State University pursuing Computer
               Science. I'm passionate about creating innovative solutions and
               learning new technologies.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 animate-slide-left animate-delay-400">
               <Link
                 to="experience"
                 spy={true}
@@ -91,12 +92,14 @@ function App() {
       {/* Experience Section */}
       <section id="experience" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl text-black font-bold text-center mb-12">
+          <h2 className="text-3xl text-black font-bold text-center mb-12 animate-slide-down animate-delay-600">
             Experience
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {experienceItems.map((item, index) => (
-              <ExperienceCard key={index} item={item} />
+              <div key={index} className={`animate-card-${index + 1}`}>
+                <ExperienceCard item={item} />
+              </div>
             ))}
           </div>
         </div>
@@ -105,10 +108,14 @@ function App() {
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Projects</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 animate-slide-right animate-delay-800">
+            Projects
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {projectItems.map((item, index) => (
-              <ExperienceCard key={index} item={item} />
+              <div key={index} className={`animate-card-${index + 1}`}>
+                <ExperienceCard item={item} />
+              </div>
             ))}
           </div>
         </div>
@@ -117,8 +124,10 @@ function App() {
       {/* About Section */}
       <section id="about" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">About Me</h2>
-          <div className="bg-white rounded-xl shadow-lg p-8">
+          <h2 className="text-3xl font-bold text-center mb-12 animate-slide-left animate-delay-1000">
+            About Me
+          </h2>
+          <div className="bg-white rounded-xl shadow-lg p-8 animate-slide-up animate-delay-1000">
             <p className="text-lg text-gray-700 leading-relaxed">
               I am a driven Computer Science student at San Jose State
               University, currently in my junior year, with a strong passion for

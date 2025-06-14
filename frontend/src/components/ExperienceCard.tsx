@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 
 interface CardProps {
@@ -12,19 +12,93 @@ interface CardProps {
 }
 
 const ExperienceCard: React.FC<CardProps> = ({ item }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const isHovered = useRef(false);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isHovered.current) return;
+
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+
+      card.style.transform = `
+        perspective(1000px) 
+        rotateX(${rotateX}deg) 
+        rotateY(${rotateY}deg) 
+        translateZ(10px) 
+        scale3d(1.02, 1.02, 1.02)
+      `;
+
+      // Add dynamic shadow based on rotation
+      const shadowX = rotateY * 0.3;
+      const shadowY = rotateX * -0.3;
+      card.style.boxShadow = `
+        ${shadowX}px ${shadowY + 8}px 25px rgba(0, 0, 0, 0.15),
+        ${shadowX * 0.3}px ${shadowY + 3}px 15px rgba(59, 130, 246, 0.2)
+      `;
+    };
+
+    const handleMouseEnter = () => {
+      isHovered.current = true;
+      card.style.transition =
+        "transform 0.1s ease-out, box-shadow 0.1s ease-out";
+    };
+
+    const handleMouseLeave = () => {
+      isHovered.current = false;
+      card.style.transition =
+        "transform 0.6s ease-out, box-shadow 0.6s ease-out";
+      card.style.transform =
+        "perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale3d(1, 1, 1)";
+      card.style.boxShadow = "0 10px 25px rgba(0, 0, 0, 0.1)";
+    };
+
+    card.addEventListener("mousemove", handleMouseMove);
+    card.addEventListener("mouseenter", handleMouseEnter);
+    card.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      card.removeEventListener("mousemove", handleMouseMove);
+      card.removeEventListener("mouseenter", handleMouseEnter);
+      card.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
   return (
-    <div className="bg-white rounded-2xl shadow-lg border border-gray-200 flex flex-col h-full overflow-hidden transition-all duration-300 ease-out hover:transform hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer">
+    <div
+      ref={cardRef}
+      className="bg-white rounded-2xl border border-gray-200 flex flex-col h-full overflow-hidden cursor-pointer"
+      style={{
+        transformStyle: "preserve-3d",
+        boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
+      }}
+    >
       {/* Large Image Section - Takes up most of the card */}
       <div className="h-96 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center p-6">
         <img
           src={item.image}
           alt={item.title}
           className="w-full h-full object-contain rounded-lg shadow-lg"
+          style={{ transform: "translateZ(5px)" }}
         />
       </div>
 
       {/* Compact Content Section */}
-      <div className="p-6 flex-shrink-0">
+      <div
+        className="p-6 flex-shrink-0"
+        style={{ transform: "translateZ(3px)" }}
+      >
         <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
         <p className="text-gray-600 text-sm leading-relaxed mb-3 line-clamp-3">
           {item.description}
@@ -36,6 +110,7 @@ const ExperienceCard: React.FC<CardProps> = ({ item }) => {
               <span
                 key={index}
                 className="bg-gray-200 text-gray-800 px-2 py-1 rounded-full text-xs"
+                style={{ transform: "translateZ(1px)" }}
               >
                 {tag}
               </span>
@@ -49,6 +124,7 @@ const ExperienceCard: React.FC<CardProps> = ({ item }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center text-blue-600 hover:text-blue-800 transition text-sm"
+            style={{ transform: "translateZ(2px)" }}
           >
             Link <ArrowRight className="ml-1 w-3 h-3" />
           </a>
