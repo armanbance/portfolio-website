@@ -1,6 +1,6 @@
 import { Link } from "react-scroll";
 import Navbar from "./components/Navbar";
-import Carousel from "./components/Carousel";
+import ExperienceCard from "./components/ExperienceCard";
 
 const experienceItems = [
   {
@@ -23,18 +23,24 @@ const projectItems = [
     title: "ChillGuy.ai",
     description:
       "Built an AI-powered voice agent that provides mental health and wellness check-ins via phone calls, winning 2nd place overall at Santa Clara University's Hack for Humanity 2025 out of over 330 participants. We integrated Twilio for outbound voice calls, and Google Oauth/Calendar to allow users to schedule calls. We also leveraged Eleven Labs natural-sounding voice agents powered by GPT-4o to guide users through calming breathing exercises and affirmations, lowering stress and providing emotional support",
+    tags: ["Twilio", "Google Cloud", "Eleven Labs", "GPT-4o"],
+    link: "#",
   },
   {
     image: "./SpartanFitness.png",
     title: "Spartan Fitness",
     description:
       "Spartan Fitness is a scalable fitness app for San Jose State University (SJSU) students that tracks real-time gym occupancy and help users create workout plans based on machine availability. Built an Express.js server to handle user authentication and storing the user's workout plans in MongoDB. Incorporated information from various external API's and SJSU to offer accurate and precise data ",
+    tags: ["Node.js", "Express", "MongoDB", "React"],
+    link: "#",
   },
   {
     image: "./EasyBuckets.png",
     title: "Easy Buckets",
     description:
       "Created a full-stack website to streamline cloud-based file uploads for users and businesses. Integrated AWS S3 with a Spring Boot backend to enable seamless and secure uploads to AWS S3 buckets. Dockerized the application to ensure consistent deployment and scalability, leveraging containerization to simplify the setup process and manage dependencies efficiently.",
+    tags: ["Java", "Spring Boot", "AWS S3", "Docker"],
+    link: "#",
   },
 ];
 
@@ -88,7 +94,11 @@ function App() {
           <h2 className="text-3xl text-black font-bold text-center mb-12">
             Experience
           </h2>
-          <Carousel items={experienceItems} />
+          <div className="grid md:grid-cols-2 gap-8">
+            {experienceItems.map((item, index) => (
+              <ExperienceCard key={index} item={item} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -96,7 +106,11 @@ function App() {
       <section id="projects" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Projects</h2>
-          <Carousel items={projectItems} />
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {projectItems.map((item, index) => (
+              <ExperienceCard key={index} item={item} />
+            ))}
+          </div>
         </div>
       </section>
 
