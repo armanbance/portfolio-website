@@ -11,14 +11,21 @@ const experienceItems = [
     image: "./Bhizchat.png",
     title: "Bhizchat",
     description:
-      "I worked as a Software Engineer intern at Bhizchat, specifically on the backend team where I coded with Typescript and Node.js. I engineered a real-time messaging layer for an AI-powered chatbot for Shopify stores using WebSocket APIs, reducing end-to-end latency by over 40% and boosting user engagement. I also helped to create a recommendation engine leveraging Pinecone vector database and OpenAI's GPT-4o, enhancing personalized product discovery and increasing store sales by about 15%",
-    tags: ["Typescript", "Node.js"],
+      "Developed a real-time AI chatbot assistant for Shopify stores, integrating OpenAI’s GPT-4o API and Pinecone's vector database with Socket.IO for seamless conversations",
+    tags: [
+      "Typescript",
+      "Node.js",
+      "AWS EC2",
+      "OpenAI",
+      "Pinecone (Vector DB)",
+    ],
   },
   {
     image: "./SCE.png",
-    title: "SJSU Software and Computer Engineering Society (SCE)",
+    title: "SJSU Software and Computer Engineering Society",
     description:
-      "Worked as a Software Engineer intern at SCE over the summer in 2024. I designed and optimized RESTful APIs using Node.js and Express for the organization's website, implementing JSON Web Tokens (JWT) and OAuth 2.0 to enforce robust security protocols and data protection for 500+ users. I also streamlined various deployment processes, including automating CI/CD pipelines with GitHub Actions and adding frontend testing, increasing bug resolution and deployment speed by about 15%.",
+      "Engineered and optimized secure RESTful APIs with Javascript and Express.js, implementing JWT and streamlining CI/CD with GitHub Actions for 500+ club members",
+    tags: ["Javascript", "Node.js", "Unit Testing", "CI/CD"],
   },
 ];
 
@@ -27,25 +34,32 @@ const projectItems = [
     image: "./chillguy.png",
     title: "ChillGuy.ai",
     description:
-      "Built an AI-powered voice agent that provides mental health and wellness check-ins via phone calls, winning 2nd place overall at Santa Clara University's Hack for Humanity 2025 out of over 330 participants. We integrated Twilio for outbound voice calls, and Google Oauth/Calendar to allow users to schedule calls. We also leveraged Eleven Labs natural-sounding voice agents powered by GPT-4o to guide users through calming breathing exercises and affirmations, lowering stress and providing emotional support",
-    tags: ["Twilio", "Google Cloud", "Eleven Labs", "GPT-4o"],
-    link: "#",
+      "Built an AI-powered mental health voice agent for stress relief and mental health support, winning 2nd place out of 330+ participants at SCU’s Hack for Humanity 2025",
+    tags: [
+      "Node.js",
+      "TypeScript",
+      "React",
+      "Google OAuth",
+      "Twilio",
+      "Eleven Labs",
+    ],
+    link: "https://devpost.com/software/chillguy-ai",
+  },
+  {
+    image: "./openscript4.png",
+    title: "OpenScript",
+    description:
+      "Developed an AI-powered script generator that adapts to a user's writing style and leverages social media trends to create engaging video scripts for content creators",
+    tags: ["Next.js", "TypeScript", "Supabase"],
+    link: "https://www.openscript.me/",
   },
   {
     image: "./SpartanFitness.png",
     title: "Spartan Fitness",
     description:
-      "Spartan Fitness is a scalable fitness app for San Jose State University (SJSU) students that tracks real-time gym occupancy and help users create workout plans based on machine availability. Built an Express.js server to handle user authentication and storing the user's workout plans in MongoDB. Incorporated information from various external API's and SJSU to offer accurate and precise data ",
-    tags: ["Node.js", "Express", "MongoDB", "React"],
-    link: "#",
-  },
-  {
-    image: "./EasyBuckets.png",
-    title: "Easy Buckets",
-    description:
-      "Created a full-stack website to streamline cloud-based file uploads for users and businesses. Integrated AWS S3 with a Spring Boot backend to enable seamless and secure uploads to AWS S3 buckets. Dockerized the application to ensure consistent deployment and scalability, leveraging containerization to simplify the setup process and manage dependencies efficiently.",
-    tags: ["Java", "Spring Boot", "AWS S3", "Docker"],
-    link: "#",
+      "Spartan Fitness is a fitness app for San Jose State University (SJSU) students that tracks real-time gym occupancy and help users create workout plans based on machine availability.",
+    tags: ["Node.js", "React", "JavaScript", "MongoDB"],
+    link: "https://github.com/armanbance/spartan-fitness",
   },
 ];
 
