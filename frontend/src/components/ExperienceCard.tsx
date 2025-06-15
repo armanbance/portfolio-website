@@ -13,11 +13,15 @@ interface CardProps {
 
 const ExperienceCard: React.FC<CardProps> = ({ item }) => {
   const cardRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const isHovered = useRef(false);
 
   useEffect(() => {
     const card = cardRef.current;
-    if (!card) return;
+    const image = imageRef.current;
+    const content = contentRef.current;
+    if (!card || !image || !content) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!isHovered.current) return;
@@ -29,8 +33,8 @@ const ExperienceCard: React.FC<CardProps> = ({ item }) => {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      const rotateX = ((y - centerY) / centerY) * -8;
-      const rotateY = ((x - centerX) / centerX) * 8;
+      const rotateX = ((y - centerY) / centerY) * 8;
+      const rotateY = ((x - centerX) / centerX) * -8;
 
       card.style.transform = `
         perspective(1000px) 
@@ -39,6 +43,15 @@ const ExperienceCard: React.FC<CardProps> = ({ item }) => {
         translateZ(10px) 
         scale3d(1.02, 1.02, 1.02)
       `;
+
+      // Internal Parallax Effect
+      const parallaxX = (centerX - x) / 10;
+      const parallaxY = (centerY - y) / 10;
+
+      image.style.transform = `translateX(${parallaxX}px) translateY(${parallaxY}px) translateZ(50px)`;
+      content.style.transform = `translateX(${parallaxX / 2}px) translateY(${
+        parallaxY / 2
+      }px) translateZ(25px)`;
 
       // Add dynamic shadow based on rotation
       const shadowX = rotateY * 0.3;
@@ -53,6 +66,8 @@ const ExperienceCard: React.FC<CardProps> = ({ item }) => {
       isHovered.current = true;
       card.style.transition =
         "transform 0.1s ease-out, box-shadow 0.1s ease-out";
+      image.style.transition = "transform 0.1s ease-out";
+      content.style.transition = "transform 0.1s ease-out";
     };
 
     const handleMouseLeave = () => {
@@ -62,6 +77,11 @@ const ExperienceCard: React.FC<CardProps> = ({ item }) => {
       card.style.transform =
         "perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale3d(1, 1, 1)";
       card.style.boxShadow = "0 10px 25px rgba(0, 0, 0, 0.1)";
+
+      image.style.transition = "transform 0.6s ease-out";
+      content.style.transition = "transform 0.6s ease-out";
+      image.style.transform = `translateX(0px) translateY(0px) translateZ(50px)`;
+      content.style.transform = `translateX(0px) translateY(0px) translateZ(25px)`;
     };
 
     card.addEventListener("mousemove", handleMouseMove);
@@ -85,27 +105,29 @@ const ExperienceCard: React.FC<CardProps> = ({ item }) => {
       }}
     >
       {/* Large Image Section - Takes up most of the card */}
-      <div className="h-96 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center p-6">
+      <div className="h-96 bg-white flex items-center justify-center p-6">
         <img
+          ref={imageRef}
           src={item.image}
           alt={item.title}
-          className="w-full h-full object-contain rounded-lg shadow-lg"
-          style={{ transform: "translateZ(5px)" }}
+          className="w-full h-full object-contain rounded-lg"
+          style={{ transform: "translateZ(50px)" }}
         />
       </div>
 
       {/* Compact Content Section */}
       <div
-        className="p-6 flex-shrink-0"
-        style={{ transform: "translateZ(3px)" }}
+        ref={contentRef}
+        className="p-5 flex-shrink-0"
+        style={{ transform: "translateZ(25px)" }}
       >
         <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-        <p className="text-gray-600 text-sm leading-relaxed mb-3 line-clamp-3">
+        <p className="text-gray-600 text-sm leading-relaxed mb-2 line-clamp-4">
           {item.description}
         </p>
 
         {item.tags && (
-          <div className="mb-3 flex flex-wrap gap-1">
+          <div className="mb-2 flex flex-wrap gap-1">
             {item.tags.map((tag, index) => (
               <span
                 key={index}

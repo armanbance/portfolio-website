@@ -1,6 +1,7 @@
 import { Link } from "react-scroll";
 import Navbar from "./components/Navbar";
 import ExperienceCard from "./components/ExperienceCard";
+import Tiltable from "./components/Tiltable";
 import "./animations.css";
 import Typewriter from "typewriter-effect";
 import { FaArrowRight } from "react-icons/fa";
@@ -11,6 +12,7 @@ const experienceItems = [
     title: "Bhizchat",
     description:
       "I worked as a Software Engineer intern at Bhizchat, specifically on the backend team where I coded with Typescript and Node.js. I engineered a real-time messaging layer for an AI-powered chatbot for Shopify stores using WebSocket APIs, reducing end-to-end latency by over 40% and boosting user engagement. I also helped to create a recommendation engine leveraging Pinecone vector database and OpenAI's GPT-4o, enhancing personalized product discovery and increasing store sales by about 15%",
+    tags: ["Typescript", "Node.js"],
   },
   {
     image: "./SCE.png",
@@ -59,13 +61,15 @@ function App() {
       >
         <div className="max-w-6xl mx-auto px-4 py-20 flex flex-col md:flex-row items-center gap-8">
           <div className="w-full md:w-1/3 flex justify-center">
-            <div className="w-64 h-64 rounded-full overflow-hidden shadow-lg border-4 border-blue-600 animate-fade-scale animate-delay-200">
-              <img
-                src="./ArmanProfilePic.png"
-                alt="Arman Bance"
-                className="w-full h-full object-cover scale-110"
-              />
-            </div>
+            <Tiltable>
+              <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-blue-600 animate-fade-scale animate-delay-200">
+                <img
+                  src="./ArmanProfilePic.png"
+                  alt="Arman Bance"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </Tiltable>
           </div>
 
           {/* Text Content */}
@@ -74,9 +78,9 @@ function App() {
               Hi, I'm Arman Bance
             </h1>
             <p className="text-xl text-gray-600 mb-8 animate-slide-left animate-delay-200">
-              I'm a Junior at San Jose State University pursuing Computer
-              Science. I'm passionate about creating innovative solutions and
-              learning new technologies.
+              I'm a junior Computer Science at San Jose State University, and
+              I'm passionate about creating innovative solutions and learning
+              new technologies!
             </p>
             <div className="text-2xl font-semibold text-gray-700 mb-8 animate-slide-left animate-delay-300 font-mono">
               <Typewriter
@@ -100,7 +104,7 @@ function App() {
                 duration={500}
                 className="group flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1 cursor-pointer select-none"
               >
-                View My Work
+                Check Out My Work
                 <FaArrowRight className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
