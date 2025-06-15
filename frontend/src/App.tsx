@@ -2,6 +2,8 @@ import { Link } from "react-scroll";
 import Navbar from "./components/Navbar";
 import ExperienceCard from "./components/ExperienceCard";
 import "./animations.css";
+import Typewriter from "typewriter-effect";
+import { FaArrowRight } from "react-icons/fa";
 
 const experienceItems = [
   {
@@ -57,16 +59,18 @@ function App() {
       >
         <div className="max-w-6xl mx-auto px-4 py-20 flex flex-col md:flex-row items-center gap-8">
           <div className="w-full md:w-1/3 flex justify-center">
-            <img
-              src="./ArmanProfilePic.png"
-              alt="Arman Bance"
-              className="rounded-full w-64 h-64 object-cover shadow-lg border-4 border-blue-600 animate-fade-scale animate-delay-200"
-            />
+            <div className="w-64 h-64 rounded-full overflow-hidden shadow-lg border-4 border-blue-600 animate-fade-scale animate-delay-200">
+              <img
+                src="./ArmanProfilePic.png"
+                alt="Arman Bance"
+                className="w-full h-full object-cover scale-110"
+              />
+            </div>
           </div>
 
           {/* Text Content */}
           <div className="w-full md:w-2/3 text-left">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-slide-left">
+            <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-slide-left font-heading">
               Hi, I'm Arman Bance
             </h1>
             <p className="text-xl text-gray-600 mb-8 animate-slide-left animate-delay-200">
@@ -74,15 +78,30 @@ function App() {
               Science. I'm passionate about creating innovative solutions and
               learning new technologies.
             </p>
+            <div className="text-2xl font-semibold text-gray-700 mb-8 animate-slide-left animate-delay-300 font-mono">
+              <Typewriter
+                options={{
+                  strings: [
+                    "Software Engineer",
+                    "Full Stack Developer",
+                    "Building the future of AI",
+                  ],
+                  autoStart: true,
+                  loop: true,
+                  delay: 40,
+                }}
+              />
+            </div>
             <div className="flex space-x-4 animate-slide-left animate-delay-400">
               <Link
                 to="experience"
                 spy={true}
                 smooth={true}
                 duration={500}
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+                className="group flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1 cursor-pointer select-none"
               >
                 View My Work
+                <FaArrowRight className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
@@ -92,7 +111,7 @@ function App() {
       {/* Experience Section */}
       <section id="experience" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl text-black font-bold text-center mb-12 animate-slide-down animate-delay-600">
+          <h2 className="text-3xl text-black font-bold text-center mb-12 animate-slide-down animate-delay-600 font-heading">
             Experience
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -108,7 +127,7 @@ function App() {
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 animate-slide-right animate-delay-800">
+          <h2 className="text-3xl font-bold text-center mb-12 animate-slide-right animate-delay-800 font-heading">
             Projects
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -124,7 +143,7 @@ function App() {
       {/* About Section */}
       <section id="about" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 animate-slide-left animate-delay-1000">
+          <h2 className="text-3xl font-bold text-center mb-12 animate-slide-left animate-delay-1000 font-heading">
             About Me
           </h2>
           <div className="bg-white rounded-xl shadow-lg p-8 animate-slide-up animate-delay-1000">
