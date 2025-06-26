@@ -46,6 +46,14 @@ const projectItems = [
     link: "https://devpost.com/software/chillguy-ai",
   },
   {
+    image: "./VIVI.png",
+    title: "VIVI",
+    description:
+      "AI storytelling companion for neurodivergent children built with Python/FastAPI, OpenCV face tracking, and OpenAI Whisper at HackDavis 2025. Listens and helps readers visualize their story in real-time, and integrates analytics to track reading progress and foster learning.",
+    tags: ["Python", "FastAPI", "React", "OpenCV"],
+    link: "https://devpost.com/software/vivi-qj6fug",
+  },
+  {
     image: "./openscript4.png",
     title: "OpenScript",
     description:
