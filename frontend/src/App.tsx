@@ -73,7 +73,7 @@ const projectItems = [
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-100">
       <Navbar />
 
       {/* Home Section */}
@@ -109,8 +109,9 @@ function App() {
                 options={{
                   strings: [
                     "Software Engineer",
-                    "Full Stack Developer",
+                    "Backend Developer",
                     "Building the future of AI",
+                    "Full Stack Developer",
                   ],
                   autoStart: true,
                   loop: true,
