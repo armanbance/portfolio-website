@@ -8,6 +8,13 @@ import { FaArrowRight } from "react-icons/fa";
 
 const experienceItems = [
   {
+    image: "./Labcast.png",
+    title: "Stanford University School of Medicine",
+    description:
+      "Engineered an AI-powered research platform for Stanford Medicine that leverages RAG and GPT-4.1 to process 10,000+ papers monthly and automate scientific discovery",
+    tags: ["Python", "Django", "OpenAI", "Pinecone (Vector DB)", "Langchain"],
+  },
+  {
     image: "./Bhizchat.png",
     title: "Bhizchat",
     description:
@@ -181,13 +188,14 @@ function App() {
               academic journey has equipped me with a solid foundation in
               software engineering, cloud computing, and artificial
               intelligence, while my hands-on experience has allowed me to
-              explore cutting-edge technologies. Recently, I demonstrated my
-              ability to innovate and collaborate by winning second place at
-              Santa Clara University's Hack for Humanity hackathon, where I
-              developed a voice-based intelligent agent using APIs like Twilio
-              and ElevenLabs. My goal is to continue creating meaningful
-              applications that make a positive difference, combining technical
-              expertise with creativity to address real-world challenges.
+              explore cutting-edge technologies. My favorite project was where I
+              demonstrated my ability to innovate and collaborate by winning
+              second place at Santa Clara University's Hack for Humanity
+              hackathon, where I developed a voice-based intelligent agent using
+              APIs like Twilio and ElevenLabs. My goal is to continue creating
+              meaningful applications that make a positive difference, combining
+              technical expertise with creativity to address real-world
+              challenges.
             </p>
           </div>
         </div>
