@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import MagneticLink from "./MagneticLink";
 
@@ -8,10 +9,29 @@ const navItems = [
 ];
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-cream/80 backdrop-blur-md border-b border-ink-900/10"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <div className="flex items-center justify-between h-20">
+        <div
+          className={`flex items-center justify-between transition-[height] duration-500 ${
+            scrolled ? "h-14" : "h-20"
+          }`}
+        >
           <Link
             to="home"
             spy={true}
@@ -49,22 +69,32 @@ const Navbar = () => {
               ))}
             </div>
 
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-4">
               <a
                 href="https://github.com/armanbance"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-sans text-xs uppercase tracking-[0.2em] text-ink-900/70 hover:text-terracotta transition-colors"
+                aria-label="GitHub"
+                className="opacity-80 hover:opacity-100 transition-opacity"
               >
-                GH
+                <img
+                  src="./Github.png"
+                  alt="GitHub"
+                  className="w-6 h-6 object-contain"
+                />
               </a>
               <a
                 href="https://www.linkedin.com/in/arman-bance/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-sans text-xs uppercase tracking-[0.2em] text-ink-900/70 hover:text-terracotta transition-colors"
+                aria-label="LinkedIn"
+                className="opacity-80 hover:opacity-100 transition-opacity"
               >
-                LI
+                <img
+                  src="./LinkedIn.png"
+                  alt="LinkedIn"
+                  className="w-6 h-6 object-contain"
+                />
               </a>
             </div>
           </div>

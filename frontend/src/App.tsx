@@ -73,7 +73,6 @@ const projectItems = [
       "An AI storytelling companion for neurodivergent children with real-time face tracking with OpenCV, voice understanding via Whisper, and adaptive visual storytelling to foster reading.",
     tags: ["Python", "FastAPI", "React", "OpenCV", "Whisper"],
     link: "https://devpost.com/software/vivi-qj6fug",
-    pullQuote: "HackDavis 2025",
     accolade: "HackDavis · 2025",
     variant: "standard" as const,
   },
@@ -108,28 +107,28 @@ function App() {
       {/* ─────────────────────────────── Hero */}
       <section
         id="home"
-        className="relative min-h-screen flex flex-col justify-center pt-24 pb-20"
+        className="relative min-h-screen flex flex-col justify-center pt-20 pb-16"
       >
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-10 grid md:grid-cols-[1.4fr_1fr] gap-12 md:gap-20 items-end">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-10 grid md:grid-cols-[1.45fr_1fr] gap-10 md:gap-16 items-center">
           {/* Left — kinetic serif headline */}
-          <div className="pt-10 md:pt-20">
-            <p className="rise delay-100 font-mono text-[11px] uppercase tracking-[0.3em] text-taupe mb-8">
+          <div className="pt-6 md:pt-10">
+            <p className="rise delay-100 font-mono text-[11px] uppercase tracking-[0.3em] text-taupe mb-6">
               <span className="inline-block w-6 h-px bg-taupe align-middle mr-3" />
               Arman Bance · Portfolio · 2026
             </p>
 
-            <h1 className="font-display text-ink-900 font-normal leading-[0.88] tracking-tightest text-[clamp(3.5rem,11vw,10.5rem)]">
+            <h1 className="font-display text-ink-900 font-normal leading-[0.92] tracking-tightest text-[clamp(2.5rem,7vw,6.5rem)]">
               <span className="block rise delay-200">Software</span>
               <span className="block rise delay-300 text-terracotta">
                 engineer
               </span>
               <span className="block rise delay-400">building</span>
               <span className="block rise delay-500">
-                AI systems<span className="text-terracotta">.</span>
+                at scale<span className="text-terracotta">.</span>
               </span>
             </h1>
 
-            <div className="rise delay-700 mt-10 flex items-baseline gap-4 font-mono text-sm text-ink-500">
+            <div className="rise delay-700 mt-8 flex items-baseline gap-4 font-mono text-sm text-ink-500">
               <span className="inline-block w-6 h-px bg-ink-500/40" />
               <span>currently:</span>
               <span className="text-ink-900">
@@ -150,7 +149,7 @@ function App() {
               </span>
             </div>
 
-            <div className="rise delay-900 mt-14 flex items-center gap-8">
+            <div className="rise delay-900 mt-10 flex items-center gap-6 md:gap-8 flex-wrap">
               <MagneticLink as="span" strength={0.35} radius={100}>
                 <Link
                   to="experience"
@@ -182,7 +181,7 @@ function App() {
           </div>
 
           {/* Right — duotone portrait */}
-          <div className="relative w-full max-w-[420px] ml-auto rise delay-600">
+          <div className="relative w-full max-w-[320px] md:max-w-[340px] ml-auto rise delay-600">
             <div className="relative overflow-hidden aspect-[3/4] bg-cream-200 rounded-sm">
               <img
                 src="./ArmanProfilePic.png"
@@ -190,7 +189,7 @@ function App() {
                 className="w-full h-full object-cover duotone-portrait"
               />
             </div>
-            <div className="mt-4 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em] text-taupe">
+            <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-taupe">
               <span>fig. 01</span>
               <span>— San Jose, CA</span>
             </div>
@@ -199,7 +198,7 @@ function App() {
       </section>
 
       {/* ─────────────────────────────── Experience */}
-      <section id="experience" className="relative py-24 md:py-36">
+      <section id="experience" className="relative pt-24 md:pt-36 pb-12 md:pb-16">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
           <BlurReveal>
             <div className="flex items-baseline justify-between mb-12 md:mb-16">
@@ -236,7 +235,7 @@ function App() {
       </section>
 
       {/* ─────────────────────────────── Projects */}
-      <section id="projects" className="relative py-24 md:py-36 bg-cream-50">
+      <section id="projects" className="relative pt-16 md:pt-24 pb-24 md:pb-36 bg-cream-50">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
           <BlurReveal>
             <div className="flex items-baseline justify-between mb-14 md:mb-20">
@@ -262,9 +261,9 @@ function App() {
               <ProjectTile item={projectItems[0]} variant="hero" />
             </BlurReveal>
 
-            {/* Row 2 — VIVI + OpenScript, 60/40 split */}
+            {/* Row 2 — VIVI + OpenScript, equal columns */}
             <BlurReveal delay={100}>
-              <div className="grid md:grid-cols-[1.2fr_1fr] gap-10 md:gap-16">
+              <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
                 <ProjectTile item={projectItems[1]} variant="standard" />
                 <ProjectTile item={projectItems[2]} variant="standard" />
               </div>

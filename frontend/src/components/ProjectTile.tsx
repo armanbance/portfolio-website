@@ -37,18 +37,31 @@ const ProjectTile = ({ item, variant = "standard" }: Props) => {
       className="group relative block cursor-pointer"
     >
       <div
+        className={`mb-3 flex items-center gap-3 ${
+          item.accolade ? "" : "invisible"
+        }`}
+        aria-hidden={!item.accolade}
+      >
+        <span className="inline-block w-6 h-px bg-terracotta" />
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-terracotta">
+          {item.accolade || "placeholder"}
+        </span>
+      </div>
+
+      <div
         className={`relative overflow-hidden rounded-sm bg-cream-200 ${aspectClass}`}
       >
-        <img
-          src={item.image}
-          alt={item.title}
-          className="w-full h-full object-contain p-6 md:p-10 duotone-portrait transition-transform duration-[900ms] ease-out group-hover:scale-[1.015]"
-        />
-        {item.accolade && (
-          <div className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-900 bg-cream-50/80 backdrop-blur-sm px-2.5 py-1.5 rounded-sm border border-ink-900/10">
-            {item.accolade}
-          </div>
-        )}
+        <div className="absolute inset-0 flex items-center justify-center p-6 md:p-10">
+          <img
+            src={item.image}
+            alt={item.title}
+            className={`${
+              variant === "standard"
+                ? "w-full h-full object-cover"
+                : "max-w-full max-h-full w-auto h-auto object-contain"
+            } duotone-portrait transition-transform duration-[900ms] ease-out group-hover:scale-[1.015]`}
+          />
+        </div>
         {item.link && (
           <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-cream-50/70 backdrop-blur-sm flex items-center justify-center opacity-0 translate-y-1 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 border border-ink-900/10">
             <ArrowUpRight className="w-4 h-4 text-ink-900" />
