@@ -1,59 +1,70 @@
 import { Link } from "react-scroll";
-import { Home, Briefcase, FolderGit2, User } from "lucide-react";
+import MagneticLink from "./MagneticLink";
+
+const navItems = [
+  { name: "Work", to: "experience" },
+  { name: "Projects", to: "projects" },
+  { name: "About", to: "about" },
+];
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-md z-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <Link
-              to="home"
-              spy={true}
-              smooth={true}
-              duration={500}
-              className="text-xl font-bold cursor-pointer"
-            >
-              Arman Bance
-            </Link>
-          </div>
-          <div className="hidden md:block">
-            <div className="flex items-center space-x-8">
-              {[
-                { name: "Home", icon: Home, to: "home" },
-                { name: "Experience", icon: Briefcase, to: "experience" },
-                { name: "Projects", icon: FolderGit2, to: "projects" },
-                { name: "About", icon: User, to: "about" },
-              ].map((item) => (
+    <nav className="fixed top-0 left-0 right-0 z-50">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="flex items-center justify-between h-20">
+          <Link
+            to="home"
+            spy={true}
+            smooth={true}
+            duration={600}
+            className="cursor-pointer select-none"
+          >
+            <MagneticLink as="span" strength={0.3} radius={90}>
+              <span className="font-display text-3xl font-normal italic text-ink-900 tracking-tighter">
+                ab
+              </span>
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-terracotta ml-1 align-middle" />
+            </MagneticLink>
+          </Link>
+
+          <div className="flex items-center gap-8 md:gap-10">
+            <div className="hidden md:flex items-center gap-8">
+              {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.to}
                   spy={true}
                   smooth={true}
-                  duration={500}
-                  className="flex items-center space-x-1 text-gray-600 hover:text-gray-900 cursor-pointer"
+                  duration={600}
+                  offset={-40}
+                  className="cursor-pointer select-none"
+                  activeClass="is-active"
                 >
-                  <item.icon className="w-4 h-4" />
-                  <span>{item.name}</span>
+                  <MagneticLink as="span" strength={0.25} radius={80}>
+                    <span className="font-sans text-sm text-ink-900/80 hover:text-ink-900 transition-colors tracking-wide">
+                      {item.name}
+                    </span>
+                  </MagneticLink>
                 </Link>
               ))}
-              <a
-                href="https://www.linkedin.com/in/arman-bance/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={"./LinkedIn.png"}
-                  alt="LinkedIn"
-                  className="w-8 h-8"
-                />
-              </a>
+            </div>
+
+            <div className="flex items-center gap-5">
               <a
                 href="https://github.com/armanbance"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="font-sans text-xs uppercase tracking-[0.2em] text-ink-900/70 hover:text-terracotta transition-colors"
               >
-                <img src={"./Github.png"} alt="Github" className="w-8 h-8" />
+                GH
+              </a>
+              <a
+                href="https://www.linkedin.com/in/arman-bance/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-xs uppercase tracking-[0.2em] text-ink-900/70 hover:text-terracotta transition-colors"
+              >
+                LI
               </a>
             </div>
           </div>

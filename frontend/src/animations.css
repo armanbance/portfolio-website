@@ -1,30 +1,31 @@
-/* Loading Animations */
-@keyframes slideInLeft {
+/* Editorial motion system — quiet luxury */
+
+@keyframes editorialRise {
   from {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateY(24px);
+    filter: blur(12px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
+    filter: blur(0);
   }
 }
 
-@keyframes slideInRight {
+@keyframes hairlineGrow {
   from {
-    opacity: 0;
-    transform: translateX(100px);
+    transform: scaleX(0);
   }
   to {
-    opacity: 1;
-    transform: translateX(0);
+    transform: scaleX(1);
   }
 }
 
-@keyframes slideInUp {
+@keyframes dropIn {
   from {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(-12px);
   }
   to {
     opacity: 1;
@@ -32,98 +33,102 @@
   }
 }
 
-@keyframes fadeInScale {
+@keyframes softFade {
   from {
     opacity: 0;
-    transform: scale(0.8);
   }
   to {
     opacity: 1;
-    transform: scale(1);
   }
 }
 
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animation Classes */
-.animate-slide-left {
-  animation: slideInLeft 0.8s ease-out forwards;
-}
-
-.animate-slide-right {
-  animation: slideInRight 0.8s ease-out forwards;
-}
-
-.animate-slide-up {
-  animation: slideInUp 0.6s ease-out forwards;
-}
-
-.animate-fade-scale {
-  animation: fadeInScale 0.8s ease-out forwards;
-}
-
-.animate-slide-down {
-  animation: slideInDown 0.6s ease-out forwards;
-}
-
-/* Delay Classes */
-.animate-delay-200 {
-  animation-delay: 0.2s;
+/* Classes */
+.rise {
+  animation: editorialRise 1s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
   opacity: 0;
 }
 
-.animate-delay-400 {
-  animation-delay: 0.4s;
+.hairline {
+  transform-origin: left center;
+  animation: hairlineGrow 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.drop-in {
+  animation: dropIn 0.6s ease-out forwards;
   opacity: 0;
 }
 
-.animate-delay-600 {
-  animation-delay: 0.6s;
+.soft-fade {
+  animation: softFade 1.2s ease-out forwards;
   opacity: 0;
 }
 
-.animate-delay-800 {
-  animation-delay: 0.8s;
+/* Delay utilities (stackable with the classes above) */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+.delay-900 { animation-delay: 0.9s; }
+.delay-1000 { animation-delay: 1s; }
+
+/* BlurReveal — applied by IntersectionObserver */
+.blur-reveal {
   opacity: 0;
+  filter: blur(14px);
+  transform: translateY(20px);
+  transition:
+    opacity 1s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 1s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, filter, transform;
+}
+.blur-reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
 }
 
-.animate-delay-1000 {
-  animation-delay: 1s;
-  opacity: 0;
+/* Drop-cap for the About section */
+.dropcap::first-letter {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 5.5rem;
+  line-height: 0.9;
+  float: left;
+  padding: 0.35rem 0.7rem 0 0;
+  color: #B86B4A;
 }
 
-/* Cards Animation */
-@keyframes fadeInStagger {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Duotone portrait — grayscale that warms up on hover */
+.duotone-portrait {
+  filter: grayscale(1) contrast(1.05) sepia(0.15);
+  transition: filter 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.duotone-portrait:hover {
+  filter: grayscale(0) contrast(1) sepia(0);
 }
 
-.animate-card-1 {
-  animation: fadeInStagger 0.6s ease-out 0.2s forwards;
-  opacity: 0;
+/* Hide native cursor when custom cursor is active */
+.cursor-hidden,
+.cursor-hidden * {
+  cursor: none !important;
 }
 
-.animate-card-2 {
-  animation: fadeInStagger 0.6s ease-out 0.4s forwards;
+/* Expanding experience row */
+.experience-row-detail {
+  max-height: 0;
+  overflow: hidden;
   opacity: 0;
+  transition:
+    max-height 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.5s ease-out;
 }
-
-.animate-card-3 {
-  animation: fadeInStagger 0.6s ease-out 0.6s forwards;
-  opacity: 0;
+.experience-row-detail.is-open {
+  max-height: 420px;
+  opacity: 1;
 }

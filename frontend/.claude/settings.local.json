@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/armanbance/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.5.0/**)",
+      "Bash(python3 src/ui-ux-pro-max/scripts/search.py \"portfolio developer modern dark minimal\" --design-system -p \"Arman Portfolio\" -f markdown)",
+      "Bash(python3 src/ui-ux-pro-max/scripts/search.py \"portfolio developer glassmorphism futuristic neon\" --design-system -p \"Arman Portfolio\" -f markdown)",
+      "Bash(python3 src/ui-ux-pro-max/scripts/search.py \"portfolio developer brutalist bold creative\" --design-system -p \"Arman Portfolio\" -f markdown)",
+      "Bash(python3 src/ui-ux-pro-max/scripts/search.py \"portfolio developer bento grid modern clean\" --design-system -p \"Arman Portfolio\" -f markdown)",
+      "Bash(python3 src/ui-ux-pro-max/scripts/search.py \"dark premium developer\" --domain color -n 5)",
+      "Bash(python3 src/ui-ux-pro-max/scripts/search.py \"modern geometric bold tech\" --domain typography -n 5)",
+      "Bash(npm run *)",
+      "Bash(python3 src/ui-ux-pro-max/scripts/search.py \"portfolio apple bento grid clean modern premium\" --design-system -p \"Arman Portfolio Bento\" -f markdown)",
+      "Bash(python3 src/ui-ux-pro-max/scripts/search.py \"bento grid apple modular\" --domain style -n 3)",
+      "Bash(python3 src/ui-ux-pro-max/scripts/search.py \"clean modern portfolio elegant\" --domain typography -n 3)",
+      "Bash(python3 src/ui-ux-pro-max/scripts/search.py \"subtle hover scale smooth reveal\" --domain ux -n 3)",
+      "Bash(python3 src/ui-ux-pro-max/scripts/search.py \"portfolio tech monochrome blue\" --domain color -n 3)"
+    ]
+  }
+}
